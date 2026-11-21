@@ -1,14 +1,22 @@
-@if (tasks.length === 0) {
+<button (click)="addTask()">
+    Ajouter une tâche
+</button>
+
+@if (tasks().length === 0) {
 <p class="empty">Aucune tâche pour l'instant</p>
 } @else {
 <ul>
-    @for (task of tasks; track task.id) {
+    @for (task of tasks(); track task.id) {
     <li>
         <strong>{{ task.title | titlecase }}</strong>
 
         <p>
             Date limite : {{ task.dueDate | date:'dd/MM/yyyy' }}
         </p>
+
+        <button (click)="deleteTask(task.id)">
+            Supprimer
+        </button>
     </li>
     }
 </ul>

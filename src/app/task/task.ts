@@ -1,5 +1,5 @@
 
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { DatePipe, TitleCasePipe } from '@angular/common';
 
 interface Task {
@@ -17,7 +17,7 @@ interface Task {
 })
 export class task {
 
-  tasks: Task[] = [
+  tasks = signal<Task[]>([
     {
       id: 1,
       title: 'apprendre angular',
@@ -33,5 +33,29 @@ export class task {
       title: 'faire un exercice',
       dueDate: new Date('2026-11-20')
     }
-  ];
+  ]);
+
+  // Ajouter task
+  addTask() {
+    const newTask: Task = {
+      id: Date.now(),
+      title: 'nouvelle tâche',
+      dueDate: new Date()
+    };
+
+    this.tasks.update(currentTasks => {
+    currentTasks.push(newTask);
+    return currentTasks;
+
+  });
+  }
+
+  // 3. Suppr
+  deleteTask(id: number) {
+    this.tasks.update(currentTasks =>
+      currentTasks.filter(task => task.id !== id)
+    );
+  }
+  
+
 }

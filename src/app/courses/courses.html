@@ -1,0 +1,27 @@
+<h2>Liste des courses</h2>
+
+<!-- Input pour ajouter un article -->
+<input type="text" [(ngModel)]="newArticleTitle" placeholder="Nom de l'article" />
+
+<button (click)="addArticle()">
+    Ajouter
+</button>
+
+<!-- Afficher les articles -->
+<ul>
+    @for (article of articles(); track article.id) {
+    <li>
+        <span [style.text-decoration]="article.bought ? 'line-through' : 'none'">
+            {{ article.title }}
+        </span>
+
+        <button (click)="toggleBought(article.id)">
+            {{ article.bought ? 'Non acheté' : 'Acheté' }}
+        </button>
+
+        <button (click)="deleteArticle(article.id)">
+            Supprimer
+        </button>
+    </li>
+    }
+</ul>
