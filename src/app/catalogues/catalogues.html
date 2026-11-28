@@ -1,0 +1,7 @@
+<h2>Catalogue</h2>
+<h3>Produits</h3>
+<div class="liste">
+    @for (p of produits(); track p.id) {
+    <app-product-card [produit]="p" (ajouter)="panier.ajouter($event)" />
+    }
+</div>

@@ -1,13 +1,32 @@
-<app-header></app-header>
-<app-task></app-task>
-<app-courses></app-courses>
+<div class="page">
+  <header class="header">
+    <h1>{{ title() }}</h1>
 
+    <div class="commande">
+      <h2>🛒 Commande ({{ panier.items().length }})</h2>
+      @if (panier.items().length === 0) {
+      <p>Le panier est vide.</p>
+      } @else {
+      <ul>
+        @for (item of panier.items(); track $index) {
+        <li>{{ item.nom }} - {{ item.prix }} DH</li>
+        }
+      </ul>
+      <p><strong>Total : {{ panier.total() }} DH</strong></p>
+      <button (click)="panier.vider()">Vider le panier</button>
+      }
+    </div>
+  </header>
 
+  <div class="corps">
+    <aside class="aside"></aside>
 
-<nav>
-  <a routerLink="/home">Home</a>
-  <a routerLink="/about">About</a>
-</nav>
+    <main class="contenu">
+      <app-catalogues />
+    </main>
+  </div>
 
-<router-outlet></router-outlet>
-
+  <footer class="footer">
+    <p>© 2026 Ma boutique</p>
+  </footer>
+</div>

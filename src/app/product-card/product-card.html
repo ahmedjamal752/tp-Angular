@@ -1,0 +1,5 @@
+<div class="card">
+    <h3>{{ produit().nom }}</h3>
+    <p>{{ produit().prix }} DH</p>
+    <button (click)="ajouter.emit(produit())">Ajouter</button>
+</div>

@@ -1,0 +1,45 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 12px 24px;
+    border-bottom: 2px solid #c0392b;
+}
+
+.commande h2 {
+    margin: 0 0 8px;
+    font-size: 1.1rem;
+}
+
+.commande ul {
+    margin: 0 0 8px;
+    padding-left: 18px;
+}
+
+.corps {
+    display: flex;
+    flex: 1;
+}
+
+.aside {
+    width: 260px;
+    padding: 16px;
+    border-right: 2px solid #c0392b;
+}
+
+.contenu {
+    flex: 1;
+    padding: 16px;
+}
+
+.footer {
+    text-align: center;
+    padding: 12px;
+    border-top: 2px solid #c0392b;
+}
